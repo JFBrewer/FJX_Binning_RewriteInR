@@ -31,7 +31,10 @@ library(purrr)
 # 
 # TTT = array(3)
 # PPP = TTT
-addx <- function(FTBL, FJX_Dir){
+addx <- function(FTBL_IN, FJX_Dir){
+  # Add directory information to FTBL filename
+  FTBL = paste0(FJX_Dir, "/", FTBL_IN)
+  
   ###### These are variable names that actually make sense ######
   PratmoBins <- read_table(paste0(FJX_Dir, "/wavel-bins.dat"), col_names = c("PratmoBin", "Lambda_Start", "Lambda_End"), skip = 1, n_max = 78)
   PratmoBins$Lambda_End[78] = 2100 #Fix this assignment so everything else goes in bin 78
